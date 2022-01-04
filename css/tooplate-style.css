@@ -568,3 +568,9 @@ b, strong {
     vertical-align: top;
   }
 }
+
+.tec_used{
+  width: 220px!important;
+  height: 190px!important;
+  border: none!important;
+}
