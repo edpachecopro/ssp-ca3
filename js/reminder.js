@@ -1,18 +1,4 @@
 
-//let myRequest = new Request("../reminder.jason")
-"use strict";
-
-fetch("../reminder.jason")
-    .then(function(resp){
-        return resp.jason();
-
-    })
-    .then(function(data){
-        console.log(data.reminder);
-    });
-
-
-
 //Getting data from jason 
 /*
 const fs = require('fs');
@@ -33,8 +19,8 @@ fs.readFile('../reminder.jason', 'utf-8', (err, jasonString)=> {
 //const fs = require('fs');
 //const reminderFile = fs.readFileSync('../reminder.json', 'utf8');
 //const reminders = JSON.parse(reminderFile);
-/*
-fetch('https://www.edgardpacheco.com/SSP-CA3/reminder.jason')
+
+fetch('../reminder.jason')
 
     .then(res => res.json())
     .then(data => {
@@ -47,9 +33,20 @@ fetch('https://www.edgardpacheco.com/SSP-CA3/reminder.jason')
         let output = "";
 
         author.forEach(function (list) {
+            console.log(list.reminder);
             output += `
-            <h1>TESTE: ${list.reminder} </h1>
+        
+ 
+       
+        
+          <td>${list.reminder}</td>
+          <td>${list.due}</td>
+          <td>${list.details}</td>
+          <td></td>
             
+       
+
+
        
             `;
         });
@@ -59,4 +56,4 @@ fetch('https://www.edgardpacheco.com/SSP-CA3/reminder.jason')
 
     });
 
-    */
+    

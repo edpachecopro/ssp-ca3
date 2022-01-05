@@ -10,13 +10,13 @@
     {
     "reminder" : "Comprar Pao ",
     "due": "05/12/2022 23:59",
-    "details": "CA Mikal create a Website",
+    "details": "Padaria do centro",
     "done": false
     },
     {
     "reminder" : "estudar ",
     "due": "05/12/2022 23:59",
-    "details": "CA Mikal create a Website",
+    "details": "prova de maths",
     "done": false
     }
   ]
