@@ -5,19 +5,19 @@
     "reminder" : "Finish CA ",
     "due": "05/12/2022 23:59",
     "details": "CA Mikal create a Website",
-    "done": false
+    "done": "not done"
     },
     {
     "reminder" : "Comprar Pao ",
     "due": "05/12/2022 23:59",
     "details": "Padaria do centro",
-    "done": false
+    "done": "done"
     },
     {
     "reminder" : "estudar ",
     "due": "05/12/2022 23:59",
     "details": "prova de maths",
-    "done": false
+    "done": "not done"
     }
   ]
 }

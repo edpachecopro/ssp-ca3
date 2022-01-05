@@ -23,7 +23,7 @@
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i>  SSP CA3</a>
+            <a class="navbar-brand" href="test.html"><i class='uil uil-user'></i>  SSP CA3</a>
 
             <ul class="navbar-nav ml-lg-auto">
                     <div class="ml-lg-4">
@@ -105,17 +105,20 @@
                   </div>
 
                   <div class="col-lg-6 col-12">
-                    <input type="text" class="form-control" name="Due" placeholder="Due date" id="email">
+                    <input type="text" class="form-control" name="Due" placeholder="Due date" id="due">
                   </div>
 
                   <div class="col-12">
-                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Task Details"></textarea>
+                    <textarea name="message" rows="6" class="form-control" id="details" placeholder="Task Details"></textarea>
                   </div>
 
                   <div class="ml-lg-auto col-lg-5 col-12">
-                    <input type="submit" class="form-control submit-btn" value="Add Task">
+                    <input type="submit" id="btn" onclick="addReminder(name.value,due.value,details.value);"class="form-control submit-btn" value="Add Task">
                   </div>
                 </div>
+                <div id="msg">
+                  <pre></pre>
+              </div>
               </form>
             </div>
 
@@ -141,17 +144,10 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-           
-            <tr>
-              <div id="reminders">
-              
-              </div>
-            </tr>
+          <tbody id="reminders"> 
+
           </tbody>
         </table>
-
-
 
 
     <!-- FOOTER -->
