@@ -3,21 +3,28 @@
   "results": [
     {
     "reminder" : "Finish CA ",
-    "due": "05/12/2022 23:59",
-    "details": "CA Mikal create a Website",
+    "due": "6 jan 2022",
+    "details": "SSP-CA3 Lecture Mikhail ",
     "priority": "Hight"
     },
     {
-    "reminder" : "Comprar Pao ",
-    "due": "05/12/2022 23:59",
-    "details": "Padaria do centro",
+    "reminder" : "Final Exam Maths ",
+    "due": "10 jan 2022",
+    "details": "Algebra",
+    "priority": "Hight"
+    },
+    {
+    "reminder" : "Final Exam Cloud Comp ",
+    "due": "20 jan 2022",
+    "details": "review everything",
     "priority": "Medium"
     },
     {
-    "reminder" : "estudar ",
-    "due": "05/12/2022 23:59",
-    "details": "prova de maths",
-    "priority": "Low"
+    "reminder" : "Buy a Car ",
+    "due": "20 jan 2022",
+    "details": "review everything",
+    "priority": "Medium"
     }
+   
   ]
 }

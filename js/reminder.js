@@ -36,6 +36,11 @@ fetch('../reminder.json')
 
 }
 
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('btn').addEventListener('click', addReminder);
+});
+
+
   let newReminder = [];
 
 
@@ -54,13 +59,12 @@ fetch('../reminder.json')
       document.forms[0].reset(); // to clear the form for the next entries
     
 
-      //for display purposes only
+      //print on html to see if is working 
+
       console.warn('added' , {newReminder} );
       const pre = document.querySelector('#msg pre');
       pre.textContent = '\n' + JSON.stringify(newReminder, '\t', 2);
 
-      //saving to localStorage
-      localStorage.setItem('Reminder', JSON.stringify(newReminder) );
 
       // TESTING ADD JASON
 
@@ -76,19 +80,13 @@ fetch('../reminder.json')
               }
           };
 
-          console.log('dado:');
-          const jsonData = JSON.stringify(reminder, null, 2);
+         
+          const jsonData = JSON.stringify(newReminder, null, 2);
           fs.writeFile('new.json', jsonData, finished);
       }
 
       addReminder(reminder);
 
-      // TESTING ADD JASON
-
-
 
   }
-  document.addEventListener('DOMContentLoaded', ()=>{
-      document.getElementById('btn').addEventListener('click', addReminder);
-  });
 
