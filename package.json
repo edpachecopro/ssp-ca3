@@ -1,0 +1,23 @@
+{
+  "name": "ssp-ca3",
+  "version": "1.0.0",
+  "description": "Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edpachecopro/ssp-ca3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edpachecopro/ssp-ca3/issues"
+  },
+  "homepage": "https://github.com/edpachecopro/ssp-ca3#readme",
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "fs": "^0.0.1-security"
+  }
+}

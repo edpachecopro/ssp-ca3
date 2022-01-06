@@ -1,21 +1,7 @@
 
-//Getting data from jason 
-/*
-const fs = require('fs');
+loadData();
 
-fs.readFile('../reminder.jason', 'utf-8', (err, jasonString)=> {
-    if(err){
-        console.log(err);
-    }else{
-        const data = JSON.parse(jasonString);
-        console.log(data.reminder);
-    }
-
-}
-
-);
-*/
-
+function loadData(){
 
 fetch('../reminder.json')
 
@@ -48,52 +34,54 @@ fetch('../reminder.json')
 
     });
 
+}
+
+  let newReminder = [];
 
 
-  let movies = [];
-  // example {id:1592304983049, title: 'Deadpool', year: 2015}
-
-  const addMovie = (ev)=>{
+  const addReminder = (ev)=>{
       ev.preventDefault();  //to stop the form submitting
-      const movie = {
+      const reminder = {
          
           reminder: document.getElementById('reminder').value,
           due: document.getElementById('due').value,
           details: document.getElementById('details').value,
           Priority: document.querySelector('input[name="priority"]:checked').value
       }
-      movies.push(movie);
+
+      newReminder.push(reminder);
+
       document.forms[0].reset(); // to clear the form for the next entries
-      //document.querySelector('form').reset();
+    
 
       //for display purposes only
-      console.warn('added' , {movies} );
+      console.warn('added' , {newReminder} );
       const pre = document.querySelector('#msg pre');
-      pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
+      pre.textContent = '\n' + JSON.stringify(newReminder, '\t', 2);
 
       //saving to localStorage
-      localStorage.setItem('MyMovieList', JSON.stringify(movies) );
+      localStorage.setItem('Reminder', JSON.stringify(newReminder) );
 
       // TESTING ADD JASON
 
-      const fs = require('fs')
+      const fs = require('fs');
 
-      const addReminder = (movie) => {
-          const finished = (error) =>{
-              if(error){
-                  console.error(error)
+      function addReminder(reminder) {
+          const finished = (error) => {
+              if (error) {
+                  console.error(error);
                   return;
-              }else{
-                  console.log('Reminder added')
+              } else {
+                  console.log('Reminder added');
               }
-          }
+          };
 
-          console.log('dado:')
-          const jsonData = JSON.stringify(movie, null, 2)
-          fs.writeFile('../new.json', jsonData, finished)
+          console.log('dado:');
+          const jsonData = JSON.stringify(reminder, null, 2);
+          fs.writeFile('new.json', jsonData, finished);
       }
 
-      addReminder(movie)
+      addReminder(reminder);
 
       // TESTING ADD JASON
 
@@ -101,28 +89,6 @@ fetch('../reminder.json')
 
   }
   document.addEventListener('DOMContentLoaded', ()=>{
-      document.getElementById('btn').addEventListener('click', addMovie);
+      document.getElementById('btn').addEventListener('click', addReminder);
   });
 
-
-
-/*
-  var fs = requere('fs');
-
-// create a JSON object
-const user = {
-    "id": 1,
-    "name": "John Doe",
-    "age": 22
-};
-
-// convert JSON object to string
-const data = JSON.stringify(user);
-
-// write JSON string to a file
-fs.writeFile('user.json', data, (err) => {
-    if (err) {
-        throw err;
-    }
-    console.log("JSON data is saved.");
-});*/
