@@ -55,7 +55,7 @@ fetch('../reminder.json')
 
   const addMovie = (ev)=>{
       ev.preventDefault();  //to stop the form submitting
-      let movie = {
+      const movie = {
          
           reminder: document.getElementById('reminder').value,
           due: document.getElementById('due').value,
@@ -68,7 +68,7 @@ fetch('../reminder.json')
 
       //for display purposes only
       console.warn('added' , {movies} );
-      let pre = document.querySelector('#msg pre');
+      const pre = document.querySelector('#msg pre');
       pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
 
       //saving to localStorage
@@ -78,7 +78,7 @@ fetch('../reminder.json')
 
       const fs = require('fs')
 
-      const addReminder = (movies) => {
+      const addReminder = (movie) => {
           const finished = (error) =>{
               if(error){
                   console.error(error)
@@ -88,9 +88,12 @@ fetch('../reminder.json')
               }
           }
 
-          const jsonData = JSON.stringify(movies, null, 2)
+          console.log('dado:')
+          const jsonData = JSON.stringify(movie, null, 2)
           fs.writeFile('../new.json', jsonData, finished)
       }
+
+      addReminder(movie)
 
       // TESTING ADD JASON
 
