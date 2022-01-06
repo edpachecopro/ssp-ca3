@@ -16,11 +16,8 @@ fs.readFile('../reminder.jason', 'utf-8', (err, jasonString)=> {
 );
 */
 
-//const fs = require('fs');
-//const reminderFile = fs.readFileSync('../reminder.json', 'utf8');
-//const reminders = JSON.parse(reminderFile);
 
-fetch('../reminder.jason')
+fetch('../reminder.json')
 
     .then(res => res.json())
     .then(data => {
@@ -40,7 +37,7 @@ fetch('../reminder.jason')
           <td>${list.reminder}</td>
           <td>${list.due}</td>
           <td>${list.details}</td>
-          <td>${list.done} </td>
+          <td>${list.priority} </td>
             
 
             `;
@@ -51,59 +48,60 @@ fetch('../reminder.jason')
 
     });
 
-    
-  /* Writing to a jason file
-  
-  let obj = {
-    reminder: 'Test',
-    due: '12/12/2021',
-    details: 'TEste adding',
-    done: false,
-  };
 
-  let fs = require('fs'), jasonData = JSON.stringify(obj);
 
-  fs.writeFile('../new.jason', jasonData, function(err) {
-      if(err){
-          console.log(err);
-      }else{
-          console.log('ok');
+  let movies = [];
+  // example {id:1592304983049, title: 'Deadpool', year: 2015}
+
+  const addMovie = (ev)=>{
+      ev.preventDefault();  //to stop the form submitting
+      let movie = {
+         
+          reminder: document.getElementById('reminder').value,
+          due: document.getElementById('due').value,
+          details: document.getElementById('details').value,
+          Priority: document.querySelector('input[name="priority"]:checked').value
       }
+      movies.push(movie);
+      document.forms[0].reset(); // to clear the form for the next entries
+      //document.querySelector('form').reset();
+
+      //for display purposes only
+      console.warn('added' , {movies} );
+      let pre = document.querySelector('#msg pre');
+      pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
+
+      //saving to localStorage
+      localStorage.setItem('MyMovieList', JSON.stringify(movies) );
+
+      // TESTING ADD JASON
+
+      const fs = require('fs')
+
+      const addReminder = (movies) => {
+          const finished = (error) =>{
+              if(error){
+                  console.error(error)
+                  return;
+              }else{
+                  console.log('Reminder added')
+              }
+          }
+
+          const jsonData = JSON.stringify(movies, null, 2)
+          fs.writeFile('../new.json', jsonData, finished)
+      }
+
+      // TESTING ADD JASON
+
+
+
+  }
+  document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('btn').addEventListener('click', addMovie);
   });
 
 
-  */ 
-
-function addReminder(name,due,details){
-
-
-    let movies = [];
-        // example {id:1592304983049, title: 'Deadpool', year: 2015}
-        const addMovie = (ev)=>{
-            ev.preventDefault();  //to stop the form submitting
-            let movie = {
-                id: Date.now(),
-                title: document.getElementById('title').value,
-                year: document.getElementById('yr').value
-            }
-            movies.push(movie);
-            document.forms[0].reset(); // to clear the form for the next entries
-            //document.querySelector('form').reset();
-
-            //for display purposes only
-            console.warn('added' , {movies} );
-            let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(movies, '\t', 2);
-
-            //saving to localStorage
-            localStorage.setItem('MyMovieList', JSON.stringify(movies) );
-        }
-        document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('btn').addEventListener('click', addMovie);
-        });
-
-
-}
 
 /*
   var fs = requere('fs');

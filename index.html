@@ -92,16 +92,17 @@
       </div>
   </Section>
 
+  <!-- FORM --> 
       <div class="container mt-5">
         <div class="row">
           <div class="col-sm-5 col-md-6">
             <div class="contact-form">
               <h2 class="mb-4">Task Reminder:</h2>
 
-              <form action="" method="get">
+              <form >
                 <div class="row">
                   <div class="col-lg-6 col-12">
-                    <input type="text" class="form-control" name="name" placeholder="Task name" id="name">
+                    <input type="text" class="form-control" name="name" placeholder="Task name" id="reminder">
                   </div>
 
                   <div class="col-lg-6 col-12">
@@ -112,8 +113,18 @@
                     <textarea name="message" rows="6" class="form-control" id="details" placeholder="Task Details"></textarea>
                   </div>
 
+                  <div class="col-12 ">
+                    <div  class="priority">Choose the Priority:</div> 
+                    <input type="radio" id="priority" class="priority" name="priority" value="Hight" checked>
+                    <label for="html">Hight</label> &nbsp
+                    <input type="radio" id="priority" class="priority"name="priority" value="Medium">
+                   <label for="css">Medium</label> &nbsp
+                   <input type="radio" id="priority" class="priority"name="priority" value="Low">
+                   <label for="javascript">Low</label>
+                   </div>
                   <div class="ml-lg-auto col-lg-5 col-12">
-                    <input type="submit" id="btn" onclick="addReminder(name.value,due.value,details.value);"class="form-control submit-btn" value="Add Task">
+                    <button id="btn"  class="form-control submit-btn">NEW TASK</button>
+                
                   </div>
                 </div>
                 <div id="msg">
@@ -141,7 +152,7 @@
               <th>Reminder</th>
               <th>Due</th>
               <th>Details</th>
-              <th>Status</th>
+              <th>Priority</th>
             </tr>
           </thead>
           <tbody id="reminders"> 
@@ -166,7 +177,6 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/reminder.js"></script>
-    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/Headroom.js"></script>
     <script src="js/jQuery.headroom.js"></script>
